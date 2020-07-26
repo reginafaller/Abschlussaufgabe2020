@@ -1,19 +1,21 @@
 {
 	"name": "miniserver",
 	"version": "1.0.0",
-	"description": "Minimal server just bouncing the URL",
-	"author": "Jirka, adapted by Lukas",
-	"main": "Server.js",
+	"description": "Abschlussaufgabe2020",
+	"author": "Regina Faller",
+	"main": "server.js",
 	"scripts": {
-		"start": "node Server.js"
+		"start": "node server.js"
 	},
 	"engines": {
 		"node": "8.11.3",
 		"mongodb": "^3.2.5"
 	},
 	"dependencies": {
-		"@types/mongodb": "^3.1.27",
-		"@types/node": "^11.13.8",
-		"mongodb": "^3.2.5"
+		"@types/mongodb": "^3.5.25",
+		"mongodb": "^3.5.9"
+	},
+	"devDependencies": {
+		"@types/node": "^11.15.20"
 	}
 }
