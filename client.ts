@@ -1,6 +1,6 @@
-namespace art{
+namespace art {
 
-   interface AnimatedElement {
+    interface AnimatedElement {
         type: string;
         x: number;
         y: number;
@@ -8,7 +8,7 @@ namespace art{
         arrayPos: number;
     }
 
-   let ElementNum: number = 0;
+    let ElementNum: number = 0;
 
     export function insert(_name: string, _crc: CanvasRenderingContext2D): void {
         let query: string = "command=insert";
@@ -24,7 +24,7 @@ namespace art{
                 arrayPos: ElementNum,
             }
             ElementNum += 1;
-            query += "&Element="  + Element.arrayPos + "&Array=" + Element.array + "&Type=" + Element.type + "&X=" + Element.x + "&Y=" + Element.y;
+            query += "&Element=" + Element.arrayPos + "&Array=" + Element.array + "&Type=" + Element.type + "&X=" + Element.x + "&Y=" + Element.y;
         }
         for (let i: number = 0; i < CircleArray.length; i++) {
             let Element: AnimatedElement = {
@@ -35,7 +35,7 @@ namespace art{
                 arrayPos: ElementNum,
             }
             ElementNum += 1;
-            query += "&Element="  + Element.arrayPos + "&Array=" + Element.array + "&Type=" + Element.type + "&X=" + Element.x + "&Y=" + Element.y;
+            query += "&Element=" + Element.arrayPos + "&Array=" + Element.array + "&Type=" + Element.type + "&X=" + Element.x + "&Y=" + Element.y;
         }
         for (let i: number = 0; i < NeutralArray.length; i++) {
             let Element: AnimatedElement = {
@@ -46,7 +46,7 @@ namespace art{
                 arrayPos: ElementNum,
             }
             ElementNum += 1;
-            query += "&Element="  + Element.arrayPos + "&Array=" + Element.array + "&Type=" + Element.type + "&X=" + Element.x + "&Y=" + Element.y;
+            query += "&Element=" + Element.arrayPos + "&Array=" + Element.array + "&Type=" + Element.type + "&X=" + Element.x + "&Y=" + Element.y;
         }
         for (let i: number = 0; i < AnimatedColor.length; i++) {
             let Element: AnimatedElement = {
@@ -57,7 +57,7 @@ namespace art{
                 arrayPos: ElementNum,
             }
             ElementNum += 1;
-            query += "&Element="  + Element.arrayPos + "&Array=" + Element.array + "&Type=" + Element.type + "&X=" + Element.x + "&Y=" + Element.y;
+            query += "&Element=" + Element.arrayPos + "&Array=" + Element.array + "&Type=" + Element.type + "&X=" + Element.x + "&Y=" + Element.y;
         }
         query += "&Anzahl=" + ElementNum;
         console.log(query);
@@ -68,6 +68,8 @@ namespace art{
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         console.log("here2");
         xhr.open("GET", serverAddress + "?" + _query, true);
+        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+        xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET');
         xhr.addEventListener("readystatechange", _callback);
         xhr.send();
     }
